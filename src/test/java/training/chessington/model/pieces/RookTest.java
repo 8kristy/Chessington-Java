@@ -158,7 +158,7 @@ public class RookTest {
         Coordinates coords1 = new Coordinates(1, 3);
         Coordinates coords2 = new Coordinates(3, 2);
         Coordinates coords3 = new Coordinates(3, 7);
-        Coordinates coords4 = new Coordinates(7, 3);
+        Coordinates coords4 = new Coordinates(6, 3);
 
         board.placePiece(coords, rook);
         board.placePiece(coords1, rook);
