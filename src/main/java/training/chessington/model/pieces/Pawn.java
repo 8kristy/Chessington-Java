@@ -21,10 +21,12 @@ public class Pawn extends AbstractPiece {
         if(this.getColour().equals(PlayerColour.WHITE)) 
              direction = -1; 
 
-        allowedMoves.add(new Move(from,from.plus(direction, 0)));
+        if(board.get(from.plus(direction, 0)) == null) {
+            allowedMoves.add(new Move(from,from.plus(direction, 0)));
 
-        if (!this.hasMoved())
-            allowedMoves.add(new Move(from, from.plus(direction * 2, 0)));
+            if(!this.hasMoved() && board.get(from.plus(direction * 2, 0)) == null)
+                allowedMoves.add(new Move(from, from.plus(direction * 2, 0)));
+        }
 
         return allowedMoves;
     }
