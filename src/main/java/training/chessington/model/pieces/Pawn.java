@@ -23,15 +23,21 @@ public class Pawn extends AbstractPiece {
 
         // If immediate space at the front is not blocked, allow move there
         Coordinates to = from.plus(direction, 0);
-        if (board.get(to) == null) {
+        if (checkBoardBounds(to) && board.get(to) == null) {
             allowedMoves.add(new Move(from, to));
 
             // If this is the first move and space 2 spaces forward is not blocked, allow move there
             Coordinates toFirstMove = from.plus(direction * 2, 0);
-            if (!this.hasMoved() && board.get(toFirstMove) == null)
+            if (!this.hasMoved() && checkBoardBounds(to) && board.get(toFirstMove) == null)
                 allowedMoves.add(new Move(from, toFirstMove));
         }
 
         return allowedMoves;
     }
+
+    private boolean checkBoardBounds(Coordinates to){
+        return to.getRow() >= 0 && to.getRow() < 8;
+    }
+
+
 }
