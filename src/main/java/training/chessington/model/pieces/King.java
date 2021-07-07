@@ -16,13 +16,14 @@ public class King extends AbstractPiece {
     @Override
     public List<Move> getAllowedMoves(Coordinates from, Board board) {
         List<Move> moves = new ArrayList<>();
-        int x = from.getCol();
-        int y = from.getRow();
+        int x = from.getRow();
+        int y = from.getCol();
         for (int i =x-1; i < x+2; i++){
             for (int j = y-1; j < y+2; j++){
                 Coordinates to = new Coordinates(i, j);
-                if (isValidMove(board, to) && !(i == x && j == y))
+                if (isValidMove(board, to) && !(i == x && j == y)){
                     moves.add(new Move(from, to));
+                }
             }
         }
         return moves;

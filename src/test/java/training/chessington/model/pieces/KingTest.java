@@ -32,17 +32,18 @@ public class KingTest {
 
     private void kingCanMoveOneSquareInAllDirections(Board board, Piece king) {
         // Arrange
-        Coordinates coords = new Coordinates(4, 4);
+        Coordinates coords = new Coordinates(6, 3);
         board.placePiece(coords, king);
 
         // Act
         List<Move> moves = king.getAllowedMoves(coords, board);
-
+        System.out.println(moves);
         // Assert
-        for (int i = 2; i < 5; i++) {
+        for (int i = 5; i < 7; i++) {
             for (int j = 2; j < 5; j++) {
-                if (!(i == 3 && j == 3))
-                    assertThat(moves.contains(new Move(coords, new Coordinates(i, j))));
+                if (!(i == 6 && j == 3)){
+                    assert(moves.contains(new Move(coords, new Coordinates(i, j))));
+                }
             }
         }
     }
@@ -60,10 +61,10 @@ public class KingTest {
 
         // Assert
         for (int i = -1; i < 2; i++) {
-            assertThat(!moves.contains(new Move(coords, new Coordinates(-1, i))));
+            assert(!moves.contains(new Move(coords, new Coordinates(-1, i))));
         }
         for (int i = -1; i < 2; i++) {
-            assertThat(!moves.contains(new Move(coords, new Coordinates(i, -1))));
+            assert(!moves.contains(new Move(coords, new Coordinates(i, -1))));
         }
     }
 
@@ -80,10 +81,10 @@ public class KingTest {
 
         // Assert
         for (int i = -1; i < 2; i++) {
-            assertThat(!moves.contains(new Move(coords, new Coordinates(-1, i))));
+            assert(!moves.contains(new Move(coords, new Coordinates(-1, i))));
         }
         for (int i = -1; i < 2; i++) {
-            assertThat(!moves.contains(new Move(coords, new Coordinates(i, -1))));
+            assert(!moves.contains(new Move(coords, new Coordinates(i, -1))));
         }
     }
 
@@ -103,7 +104,7 @@ public class KingTest {
         List<Move> moves = king.getAllowedMoves(coords, board);
 
         // Assert
-        assertThat(!moves.contains(new Move(coords, new Coordinates(3, 6))));
+        assert(!moves.contains(new Move(coords, new Coordinates(3, 6))));
     }
 
     @Test
@@ -122,7 +123,7 @@ public class KingTest {
         List<Move> moves = king.getAllowedMoves(coords, board);
 
         // Assert
-        assertThat(!moves.contains(new Move(coords, new Coordinates(3, 6))));
+        assert(!moves.contains(new Move(coords, new Coordinates(3, 6))));
     }
 
     @Test
@@ -141,7 +142,7 @@ public class KingTest {
         List<Move> moves = king.getAllowedMoves(coords, board);
 
         // Assert
-        assertThat(!moves.contains(new Move(coords, new Coordinates(3, 6))));
+        assert(!moves.contains(new Move(coords, new Coordinates(3, 6))));
     }
 
     @Test
@@ -160,7 +161,7 @@ public class KingTest {
         List<Move> moves = king.getAllowedMoves(coords, board);
 
         // Assert
-        assertThat(!moves.contains(new Move(coords, new Coordinates(3, 6))));
+        assert(!moves.contains(new Move(coords, new Coordinates(3, 6))));
 
     }
 

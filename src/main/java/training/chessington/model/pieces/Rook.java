@@ -27,13 +27,14 @@ public class Rook extends AbstractPiece {
         Coordinates to = from.plus(xDirection, yDirection);
         while(isValidMove(board, to)) {
             allowedMoves.add(new Move(from, to));
-            if(board.get(to) != null) break;
             to = to.plus(xDirection, yDirection);
         }
+        if (checkBoardBounds(to) && board.get(to).getColour() != this.colour)
+            allowedMoves.add(new Move(from, to));
     }
 
     private boolean isValidMove(Board board, Coordinates to) {
-        return checkBoardBounds(to) && (board.get(to) == null || !board.get(to).getColour().equals(this.getColour()));
+        return checkBoardBounds(to) && board.get(to) == null;
     }
 
 }

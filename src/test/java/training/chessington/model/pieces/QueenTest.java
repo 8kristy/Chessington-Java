@@ -42,26 +42,26 @@ public class QueenTest {
         // Vertical moves
         for (int i = 0; i < 8; i++) {
             if (i != 4)
-            assertThat(moves.contains(new Move(coords, new Coordinates(4, i))));
+            assert(moves.contains(new Move(coords, new Coordinates(4, i))));
         }
         // Horizontal moves
         for (int i = 0; i < 8; i++) {
             if (i != 4)
-                assertThat(moves.contains(new Move(coords, new Coordinates(i, 4))));
+                assert(moves.contains(new Move(coords, new Coordinates(i, 4))));
         }
 
         // Diagonal moves
         for(int i = 1; i<=3; i++){
-            assertThat(moves).contains(new Move(coords, coords.plus(-i, i)));
+            assert(moves).contains(new Move(coords, coords.plus(-i, i)));
         }
         for(int i = 1; i<=4; i++){
-            assertThat(moves).contains(new Move(coords, coords.plus(-i, -i)));
+            assert(moves).contains(new Move(coords, coords.plus(-i, -i)));
         }
         for(int i = 1; i<=3; i++){
-            assertThat(moves).contains(new Move(coords, coords.plus(i, i)));
+            assert(moves).contains(new Move(coords, coords.plus(i, i)));
         }
         for(int i = 1; i<=3; i++){
-            assertThat(moves).contains(new Move(coords, coords.plus(i, -i)));
+            assert(moves).contains(new Move(coords, coords.plus(i, -i)));
         }
 
 
@@ -80,15 +80,15 @@ public class QueenTest {
 
         // Assert
         // Straight
-        assertThat(!moves.contains(new Move(coords, new Coordinates(3, -1))));
-        assertThat(!moves.contains(new Move(coords, new Coordinates(3, 8))));
-        assertThat(!moves.contains(new Move(coords, new Coordinates(-1, 3))));
-        assertThat(!moves.contains(new Move(coords, new Coordinates(8, 3))));
+        assert(!moves.contains(new Move(coords, new Coordinates(3, -1))));
+        assert(!moves.contains(new Move(coords, new Coordinates(3, 8))));
+        assert(!moves.contains(new Move(coords, new Coordinates(-1, 3))));
+        assert(!moves.contains(new Move(coords, new Coordinates(8, 3))));
         // Diagonal
-        assertThat(!moves.contains(new Move(coords, new Coordinates(-1, -1))));
-        assertThat(!moves.contains(new Move(coords, new Coordinates(-1, 7))));
-        assertThat(!moves.contains(new Move(coords, new Coordinates(7, -1))));
-        assertThat(!moves.contains(new Move(coords, new Coordinates(8, 8))));
+        assert(!moves.contains(new Move(coords, new Coordinates(-1, -1))));
+        assert(!moves.contains(new Move(coords, new Coordinates(-1, 7))));
+        assert(!moves.contains(new Move(coords, new Coordinates(7, -1))));
+        assert(!moves.contains(new Move(coords, new Coordinates(8, 8))));
     }
 
     @Test
@@ -104,15 +104,15 @@ public class QueenTest {
 
         // Assert
         // Straight
-        assertThat(!moves.contains(new Move(coords, new Coordinates(3, -1))));
-        assertThat(!moves.contains(new Move(coords, new Coordinates(3, 8))));
-        assertThat(!moves.contains(new Move(coords, new Coordinates(-1, 3))));
-        assertThat(!moves.contains(new Move(coords, new Coordinates(8, 3))));
+        assert(!moves.contains(new Move(coords, new Coordinates(3, -1))));
+        assert(!moves.contains(new Move(coords, new Coordinates(3, 8))));
+        assert(!moves.contains(new Move(coords, new Coordinates(-1, 3))));
+        assert(!moves.contains(new Move(coords, new Coordinates(8, 3))));
         // Diagonal
-        assertThat(!moves.contains(new Move(coords, new Coordinates(-1, -1))));
-        assertThat(!moves.contains(new Move(coords, new Coordinates(-1, 7))));
-        assertThat(!moves.contains(new Move(coords, new Coordinates(7, -1))));
-        assertThat(!moves.contains(new Move(coords, new Coordinates(8, 8))));
+        assert(!moves.contains(new Move(coords, new Coordinates(-1, -1))));
+        assert(!moves.contains(new Move(coords, new Coordinates(-1, 7))));
+        assert(!moves.contains(new Move(coords, new Coordinates(7, -1))));
+        assert(!moves.contains(new Move(coords, new Coordinates(8, 8))));
     }
 
     @Test
@@ -168,29 +168,29 @@ public class QueenTest {
         // Assert
 
         // Not allowed behind piece
-        assertThat(!moves.contains(new Move(coords, new Coordinates(3, 0))));
-        assertThat(!moves.contains(new Move(coords, new Coordinates(3, 1))));
-        assertThat(!moves.contains(new Move(coords, new Coordinates(0, 3))));
-        assertThat(!moves.contains(new Move(coords, new Coordinates(7, 3))));
+        assert(!moves.contains(new Move(coords, new Coordinates(3, 0))));
+        assert(!moves.contains(new Move(coords, new Coordinates(3, 1))));
+        assert(!moves.contains(new Move(coords, new Coordinates(0, 3))));
+        assert(!moves.contains(new Move(coords, new Coordinates(7, 3))));
 
-        assertThat(!moves.contains(new Move(coords, new Coordinates(0, 0))));
-        assertThat(!moves.contains(new Move(coords, new Coordinates(1, 1))));
-        assertThat(!moves.contains(new Move(coords, new Coordinates(0, 6))));
+        assert(!moves.contains(new Move(coords, new Coordinates(0, 0))));
+        assert(!moves.contains(new Move(coords, new Coordinates(1, 1))));
+        assert(!moves.contains(new Move(coords, new Coordinates(0, 6))));
 
         // Allowed before piece
-        assertThat(moves.contains(new Move(coords, new Coordinates(2, 3))));
-        assertThat(moves.contains(new Move(coords, new Coordinates(3, 4))));
-        assertThat(moves.contains(new Move(coords, new Coordinates(3, 5))));
-        assertThat(moves.contains(new Move(coords, new Coordinates(3, 6))));
-        assertThat(moves.contains(new Move(coords, new Coordinates(4, 3))));
-        assertThat(moves.contains(new Move(coords, new Coordinates(5, 3))));
+        assert(moves.contains(new Move(coords, new Coordinates(2, 3))));
+        assert(moves.contains(new Move(coords, new Coordinates(3, 4))));
+        assert(moves.contains(new Move(coords, new Coordinates(3, 5))));
+        assert(moves.contains(new Move(coords, new Coordinates(3, 6))));
+        assert(moves.contains(new Move(coords, new Coordinates(4, 3))));
+        assert(moves.contains(new Move(coords, new Coordinates(5, 3))));
         
-        assertThat(moves.contains(new Move(coords, new Coordinates(2, 4))));
-        assertThat(moves.contains(new Move(coords, new Coordinates(4, 2))));
-        assertThat(moves.contains(new Move(coords, new Coordinates(4, 4))));
-        assertThat(moves.contains(new Move(coords, new Coordinates(5, 1))));
-        assertThat(moves.contains(new Move(coords, new Coordinates(5, 5))));
-        assertThat(moves.contains(new Move(coords, new Coordinates(6, 6))));
+        assert(moves.contains(new Move(coords, new Coordinates(2, 4))));
+        assert(moves.contains(new Move(coords, new Coordinates(4, 2))));
+        assert(moves.contains(new Move(coords, new Coordinates(4, 4))));
+        assert(moves.contains(new Move(coords, new Coordinates(5, 1))));
+        assert(moves.contains(new Move(coords, new Coordinates(5, 5))));
+        assert(moves.contains(new Move(coords, new Coordinates(6, 6))));
     }
 
     @Test
@@ -209,7 +209,7 @@ public class QueenTest {
         List<Move> moves = queen.getAllowedMoves(coords, board);
 
         // Assert
-        assertThat(!moves.contains(new Move(coords, new Coordinates(3, 6))));
+        assert(moves.contains(new Move(coords, new Coordinates(3, 6))));
     }
 
     @Test
@@ -228,7 +228,7 @@ public class QueenTest {
         List<Move> moves = queen.getAllowedMoves(coords, board);
 
         // Assert
-        assertThat(!moves.contains(new Move(coords, new Coordinates(3, 6))));
+        assert(moves.contains(new Move(coords, new Coordinates(3, 6))));
     }
 
     @Test
@@ -247,7 +247,7 @@ public class QueenTest {
         List<Move> moves = queen.getAllowedMoves(coords, board);
 
         // Assert
-        assertThat(!moves.contains(new Move(coords, new Coordinates(3, 6))));
+        assert(!moves.contains(new Move(coords, new Coordinates(3, 6))));
     }
 
     @Test
@@ -266,7 +266,7 @@ public class QueenTest {
         List<Move> moves = queen.getAllowedMoves(coords, board);
 
         // Assert
-        assertThat(!moves.contains(new Move(coords, new Coordinates(3, 6))));
+        assert(!moves.contains(new Move(coords, new Coordinates(3, 6))));
 
     }
 
