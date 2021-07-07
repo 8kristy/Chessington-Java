@@ -37,7 +37,6 @@ public class KingTest {
 
         // Act
         List<Move> moves = king.getAllowedMoves(coords, board);
-        System.out.println(moves);
         // Assert
         for (int i = 5; i < 7; i++) {
             for (int j = 2; j < 5; j++) {
