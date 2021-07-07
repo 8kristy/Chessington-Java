@@ -75,7 +75,6 @@ public class RookTest {
         rookCannotMoveDiagonally(board, rook);
     }
 
-    @Test
     public void rookCannotMoveDiagonally(Board board, Piece rook) {
         // Arrange
         Coordinates coords = new Coordinates(3, 3);
