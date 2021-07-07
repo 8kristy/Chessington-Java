@@ -6,10 +6,12 @@ public abstract class AbstractPiece implements Piece {
 
     protected final Piece.PieceType type;
     protected final PlayerColour colour;
+    protected boolean moved;
 
     protected AbstractPiece(Piece.PieceType type, PlayerColour colour) {
         this.type = type;
         this.colour = colour;
+        this.moved = false;
     }
 
     @Override
@@ -25,5 +27,13 @@ public abstract class AbstractPiece implements Piece {
     @Override
     public String toString() {
         return colour.toString() + " " + type.toString();
+    }
+
+    public void setMoved(boolean moved) {
+        this.moved = moved;
+    }
+
+    public boolean hasMoved() {
+        return moved;
     }
 }
