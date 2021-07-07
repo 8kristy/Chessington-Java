@@ -1,5 +1,6 @@
 package training.chessington.model.pieces;
 
+import training.chessington.model.Coordinates;
 import training.chessington.model.PlayerColour;
 
 public abstract class AbstractPiece implements Piece {
@@ -36,4 +37,9 @@ public abstract class AbstractPiece implements Piece {
     public boolean hasMoved() {
         return moved;
     }
+
+    protected boolean checkBoardBounds(Coordinates to){
+        return to.getRow() >= 0 && to.getRow() < 8 && to.getCol() >= 0 && to.getCol() < 8; 
+    }
+
 }
