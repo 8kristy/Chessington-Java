@@ -22,6 +22,7 @@ public class Pawn extends AbstractPiece {
 
         List<Move> allowedMoves = new ArrayList<>();
         addForwardMoves(board, allowedMoves, from, direction);
+        addCapturingMoves(board, allowedMoves, from, direction);
 
         return allowedMoves;
     }
@@ -39,12 +40,27 @@ public class Pawn extends AbstractPiece {
         }
     }
 
+    private void addCapturingMoves(Board board, List<Move> allowedMoves, Coordinates from, int directionY){
+        List<Integer> possibleXDirections = new ArrayList<>();
+        possibleXDirections.add(-1);
+        possibleXDirections.add(1);
+        for(int directionX : possibleXDirections){ 
+            Coordinates to = from.plus(directionY,directionX);
+            if(isValidMoveDiagonally(board, to))
+                allowedMoves.add(new Move(from, to));
+        }
+    }
+
+    private boolean isValidMoveDiagonally(Board board, Coordinates to){
+        return checkBoardBounds(to) && board.get(to) != null && !board.get(to).getColour().equals(this.getColour());
+    }
+
     private boolean isValidMoveForward(Board board, Coordinates to){
         return checkBoardBounds(to) && board.get(to) == null;
     }
 
     private boolean checkBoardBounds(Coordinates to){
-        return to.getRow() >= 0 && to.getRow() < 8;
+        return to.getRow() >= 0 && to.getRow() < 8 && to.getCol() >= 0 && to.getCol() < 8; 
     }
 
 
