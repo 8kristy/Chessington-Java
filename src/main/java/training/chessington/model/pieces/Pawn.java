@@ -15,24 +15,32 @@ public class Pawn extends AbstractPiece {
 
     @Override
     public List<Move> getAllowedMoves(Coordinates from, Board board) {
-        List<Move> allowedMoves = new ArrayList<>();
         int direction = 1; 
 
         if (this.getColour().equals(PlayerColour.WHITE)) 
              direction = -1; 
 
+        List<Move> allowedMoves = new ArrayList<>();
+        addForwardMoves(board, allowedMoves, from, direction);
+
+        return allowedMoves;
+    }
+
+    private void addForwardMoves(Board board, List<Move> allowedMoves, Coordinates from, int direction){
         // If immediate space at the front is not blocked, allow move there
         Coordinates to = from.plus(direction, 0);
-        if (checkBoardBounds(to) && board.get(to) == null) {
+        if (isValidMoveForward(board, to)) {
             allowedMoves.add(new Move(from, to));
 
             // If this is the first move and space 2 spaces forward is not blocked, allow move there
             Coordinates toFirstMove = from.plus(direction * 2, 0);
-            if (!this.hasMoved() && checkBoardBounds(to) && board.get(toFirstMove) == null)
+            if (!this.hasMoved() && isValidMoveForward(board, toFirstMove))
                 allowedMoves.add(new Move(from, toFirstMove));
         }
+    }
 
-        return allowedMoves;
+    private boolean isValidMoveForward(Board board, Coordinates to){
+        return checkBoardBounds(to) && board.get(to) == null;
     }
 
     private boolean checkBoardBounds(Coordinates to){
