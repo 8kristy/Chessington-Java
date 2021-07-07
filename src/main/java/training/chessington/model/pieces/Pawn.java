@@ -59,9 +59,4 @@ public class Pawn extends AbstractPiece {
         return checkBoardBounds(to) && board.get(to) == null;
     }
 
-    private boolean checkBoardBounds(Coordinates to){
-        return to.getRow() >= 0 && to.getRow() < 8 && to.getCol() >= 0 && to.getCol() < 8; 
-    }
-
-
 }
