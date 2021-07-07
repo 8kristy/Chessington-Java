@@ -18,14 +18,18 @@ public class Pawn extends AbstractPiece {
         List<Move> allowedMoves = new ArrayList<>();
         int direction = 1; 
 
-        if(this.getColour().equals(PlayerColour.WHITE)) 
+        if (this.getColour().equals(PlayerColour.WHITE)) 
              direction = -1; 
 
-        if(board.get(from.plus(direction, 0)) == null) {
-            allowedMoves.add(new Move(from,from.plus(direction, 0)));
+        // If immediate space at the front is not blocked, allow move there
+        Coordinates to = from.plus(direction, 0);
+        if (board.get(to) == null) {
+            allowedMoves.add(new Move(from, to));
 
-            if(!this.hasMoved() && board.get(from.plus(direction * 2, 0)) == null)
-                allowedMoves.add(new Move(from, from.plus(direction * 2, 0)));
+            // If this is the first move and space 2 spaces forward is not blocked, allow move there
+            Coordinates toFirstMove = from.plus(direction * 2, 0);
+            if (!this.hasMoved() && board.get(toFirstMove) == null)
+                allowedMoves.add(new Move(from, toFirstMove));
         }
 
         return allowedMoves;
